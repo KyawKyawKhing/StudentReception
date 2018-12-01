@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>613196454581-h55sosaij6s62c1j67u84tp7kl635il6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.613196454581-h55sosaij6s62c1j67u84tp7kl635il6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAFJgcFmIXeGOCWPaBCSfLHcNEVOd5_sgc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>613196454581</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kkk.StudentReception</string>
+	<key>PROJECT_ID</key>
+	<string>studentreception-527cc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>studentreception-527cc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:613196454581:ios:e7a7c3be61851f85</string>
+	<key>DATABASE_URL</key>
+	<string>https://studentreception-527cc.firebaseio.com</string>
+</dict>
+</plist>

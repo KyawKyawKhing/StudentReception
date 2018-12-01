@@ -1,0 +1,6 @@
+framework module Pods_StudentReception {
+  umbrella header "Pods-StudentReception-umbrella.h"
+
+  export *
+  module * { export * }
+}
