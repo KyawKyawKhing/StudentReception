@@ -16,7 +16,7 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func chooseUpload(_ sender: UIButton, imagePickerControllerDelegate: UIImagePickerControllerDelegate & UINavigationControllerDelegate) {
+    func chooseUpload(imagePickerControllerDelegate: UIImagePickerControllerDelegate & UINavigationControllerDelegate) {
         
         let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in

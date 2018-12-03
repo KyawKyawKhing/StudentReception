@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FillFormViewController: BaseViewController {
 
@@ -19,28 +20,64 @@ class FillFormViewController: BaseViewController {
     @IBOutlet weak var tfStudentNrc: UITextField!
     @IBOutlet weak var tfStudentGrade: UITextField!
     
-    
-    
-    
+    var profileImageUrl = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.imgStudentProfile.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClickProfileImage(_ :))))
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func onClickProfileImage(_ sender: UITapGestureRecognizer){
+       print("click profile upload")
+    self.chooseUpload(imagePickerControllerDelegate: self)
     }
-    */
+    
     @IBAction func onClickFillForm(_ sender: UIButton) {
         print("fill form")
+        let studentVO = StudentVO()
+        studentVO.profileImage = profileImageUrl
+        studentVO.userName = tfStudentName.text ?? ""
+        studentVO.fatherName = tfStudentFatherName.text ?? ""
+        studentVO.email = tfStudentEmail.text ?? ""
+        studentVO.address = tfStudentAddress.text ?? ""
+        studentVO.phone = tfStudentPhone.text ?? ""
+        studentVO.nrc = tfStudentNrc.text ?? ""
+        studentVO.grade = tfStudentGrade.text ?? ""
+        
+        DataModel.shared.addStudent(student: studentVO, success: {
+            self.dismiss(animated: true, completion: nil)
+        }) {
+            
+        }
+    }
+    
+    @IBAction func onClickBackButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+}
+extension FillFormViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
+        if let pickedImage = info[.editedImage] as? UIImage {
+            
+            DataModel.shared.uploadImage(data: pickedImage.pngData(), success: { (url) in
+                
+                self.profileImageUrl = url
+                
+                self.imgStudentProfile.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "student-placeholder"))
+                
+            }) {
+                self.showAlertDialog(inputMessage: "Error.")
+            }
+            
+        }
+        
     }
     
 }
+

@@ -14,6 +14,7 @@ class StudentProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var studentImage: UIImageView!
     @IBOutlet weak var studentName: UILabel!
     @IBOutlet weak var studentGrade: UILabel!
+    @IBOutlet weak var studentEmail: UILabel!
     
     
     override func awakeFromNib() {
@@ -28,6 +29,7 @@ class StudentProfileTableViewCell: UITableViewCell {
         self.studentImage.sd_setImage(with: URL(string: studentVo.profileImage ?? ""), placeholderImage: UIImage(named: "student-placeholder"))
         self.studentName.text = studentVo.userName
         self.studentGrade.text = studentVo.grade
+        self.studentEmail.text = studentVo.email
     }
     
 }

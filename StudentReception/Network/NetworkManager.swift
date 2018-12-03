@@ -16,7 +16,7 @@ class NetworkManager {
     
     let rootRef : DatabaseReference!
     
-    let storageRef = Storage.storage().reference().child("images")
+    let storageRef = Storage.storage().reference().child("profileimages")
     
     private init() {
         rootRef = Database.database().reference()
@@ -32,7 +32,7 @@ class NetworkManager {
     }()
     
     func loadStudents(success : @escaping ([StudentVO]) -> Void, failure : @escaping () -> Void) {
-        rootRef.child("kabyar").observe(.value) { (dataSnapshot) in
+        rootRef.child("students").observe(.value) { (dataSnapshot) in
             if let posts = dataSnapshot.children.allObjects as? [DataSnapshot] {
                 var studentList : [StudentVO] = []
                 for post in posts {
@@ -48,7 +48,7 @@ class NetworkManager {
     
     func login(email : String, password : String, success : @escaping (StudentVO) -> Void, failure : @escaping () -> Void) {
         
-        rootRef.child("users").observe(.value) { (dataSnapshot) in
+        rootRef.child("students").observe(.value) { (dataSnapshot) in
             
             if let students = dataSnapshot.children.allObjects as? [DataSnapshot] {
                 
@@ -72,7 +72,7 @@ class NetworkManager {
     }
     
     func addStudent(student : StudentVO, success : @escaping () -> Void, failure : @escaping () -> Void) {
-        rootRef.child("kabyar").child(student.id).setValue(StudentVO.parseToDictionary(student: student))
+        rootRef.child("students").child(student.id).setValue(StudentVO.parseToDictionary(student: student))
         success()
     }
     
@@ -99,7 +99,7 @@ class NetworkManager {
                 })
             }
             uploadTask.observe(.progress) { (snapshot) in
-                print(snapshot.progress ?? "NO MORE PROGRESS")
+                print("progress \(String(describing: snapshot.progress))")
             }
             uploadTask.resume()
         }

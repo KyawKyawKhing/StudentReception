@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xk-ac-o0o">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sfr-ID-aB9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="Sfr-ID-aB9">
                                 <rect key="frame" x="8" y="8" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="4WY-mR-TZ9"/>
@@ -40,16 +40,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mgmg@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZD7-uu-mWt">
+                                <rect key="frame" x="116" y="66" width="196" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="116" id="3Vt-7L-JpO"/>
+                            <constraint firstItem="ZD7-uu-mWt" firstAttribute="leading" secondItem="Sfr-ID-aB9" secondAttribute="trailing" constant="8" id="43C-eq-u3Y"/>
                             <constraint firstAttribute="trailing" secondItem="jw3-1U-Lor" secondAttribute="trailing" constant="8" id="EM9-o1-8e4"/>
                             <constraint firstItem="Sfr-ID-aB9" firstAttribute="leading" secondItem="8xk-ac-o0o" secondAttribute="leading" constant="8" id="GaF-fF-1aI"/>
                             <constraint firstItem="Sfr-ID-aB9" firstAttribute="top" secondItem="8xk-ac-o0o" secondAttribute="top" constant="8" id="Qkd-KR-tgk"/>
+                            <constraint firstItem="ZD7-uu-mWt" firstAttribute="top" secondItem="ew2-Ot-6m3" secondAttribute="bottom" constant="8" id="SuA-nx-Gtr"/>
                             <constraint firstItem="ew2-Ot-6m3" firstAttribute="top" secondItem="jw3-1U-Lor" secondAttribute="bottom" constant="8" id="Wpx-CD-ECt"/>
                             <constraint firstAttribute="trailing" secondItem="ew2-Ot-6m3" secondAttribute="trailing" constant="8" id="Z1X-uC-lCf"/>
                             <constraint firstItem="jw3-1U-Lor" firstAttribute="leading" secondItem="Sfr-ID-aB9" secondAttribute="trailing" constant="8" id="Zg9-HU-2hG"/>
+                            <constraint firstAttribute="trailing" secondItem="ZD7-uu-mWt" secondAttribute="trailing" constant="8" id="cfH-Uu-GjC"/>
                             <constraint firstItem="ew2-Ot-6m3" firstAttribute="leading" secondItem="Sfr-ID-aB9" secondAttribute="trailing" constant="8" id="dzA-9D-gv4"/>
                             <constraint firstItem="jw3-1U-Lor" firstAttribute="top" secondItem="8xk-ac-o0o" secondAttribute="top" constant="8" id="zb1-Sy-W4Z"/>
                         </constraints>
@@ -64,6 +73,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="studentEmail" destination="ZD7-uu-mWt" id="cru-SI-LhN"/>
                 <outlet property="studentGrade" destination="ew2-Ot-6m3" id="Qth-Bj-e0x"/>
                 <outlet property="studentImage" destination="Sfr-ID-aB9" id="xvj-zl-2BO"/>
                 <outlet property="studentName" destination="jw3-1U-Lor" id="rUm-F0-90f"/>
@@ -71,4 +81,7 @@
             <point key="canvasLocation" x="129.59999999999999" y="147.52623688155924"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="user" width="120" height="120"/>
+    </resources>
 </document>
